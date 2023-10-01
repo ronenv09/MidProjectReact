@@ -83,7 +83,7 @@ const deleteUser = (filteredUserList) =>
      
        <UsersComp users = {users} todos = {todos} posts = {posts}  
       updateTodos = {updateTodos} addNewTodo = {addNewTodo} addNewPost = {addNewPost}
-       addNewUser = {addNewUser} deleteUser={deleteUser}/>
+       addNewUser = {addNewUser} deleteUser={deleteUser} />
        
     </div>
 

@@ -125,9 +125,9 @@ function UserComp(props) {
             <PostsComp topTwoUserPosts = {topTwoUserPosts} userId = {props.user.id} user = {user} addNewPost = {props.addNewPost} />
             </div>
              )}
-      <label style = {{cursor :  'pointer'}} onClick={handleUserIdClicked}> Id : {props.user.id} </label><br/> 
-      Name: <input type="text" defaultValue={user.name} style={{width: '180px',marginBottom: '5px',marginLeft: '32px',backgroundColor: isClicked ? '#FF9F33' : ''}}  onChange={(e) => setUser({...user,name : e.target.value})} /><br/>
-      Email: <input type="text" defaultValue={user.email} style={{width: '180px',marginLeft: '36px' ,backgroundColor: isClicked ? '#FF9F33' : ''}} onChange={(e) => setUser({...user,email : e.target.value})}/><br/><br/>
+      <span style = {{cursor :  'pointer'}}  onClick={handleUserIdClicked}> Id : {props.user.id} </span><br/> 
+      Name: <input type="text" name="Name" autoComplete="off" defaultValue={user.name} style={{width: '180px',marginBottom: '5px',marginLeft: '32px',backgroundColor: isClicked ? '#FF9F33' : ''}}  onChange={(e) => setUser({...user,name : e.target.value})} /><br/>
+      Email: <input type="text" name="Email" autoComplete="off" defaultValue={user.email} style={{width: '180px',marginLeft: '36px' ,backgroundColor: isClicked ? '#FF9F33' : ''}} onChange={(e) => setUser({...user,email : e.target.value})}/><br/><br/>
       
       
       <div>
@@ -142,9 +142,9 @@ function UserComp(props) {
               {isHovered && (
                 <div style={{border: '1px solid gray' ,marginLeft: '-10px',height : '90px',width: '400px',padding : '5px', marginTop: '10px',marginBottom: '10px', borderRadius: '30px'}}>
                   <div style={{marginLeft: '10px'}}>
-                    Street: <input type="text" defaultValue={updatedUser.address.street} onChange={(e) => setUser({...user,address : {...user.address,street : e.target.value}})} style={{width: '180px',marginBottom: '5px',marginLeft: '28px',backgroundColor: isClicked ? '#FF9F33' : ''}} /><br/>
-                    City: <input type="text" defaultValue={updatedUser.address.city} onChange={(e) => setUser({...user,address : {...user.address,city : e.target.value}})} style={{width: '180px',marginBottom: '5px',marginLeft: '42px',backgroundColor: isClicked ? '#FF9F33' : ''}}/><br/>
-                    Zip Code: <input type="text" defaultValue={updatedUser.address.zipcode} onChange={(e) => setUser({...user,address : {...user.address,zipcode : e.target.value}})} style={{width: '180px',marginLeft: '5px',backgroundColor: isClicked ? '#FF9F33' : ''}}/><br/>
+                    Street: <input type="text" name="Street" defaultValue={updatedUser.address.street} onChange={(e) => setUser({...user,address : {...user.address,street : e.target.value}})} style={{width: '180px',marginBottom: '5px',marginLeft: '28px',backgroundColor: isClicked ? '#FF9F33' : ''}} /><br/>
+                    City: <input type="text" name="City" defaultValue={updatedUser.address.city} onChange={(e) => setUser({...user,address : {...user.address,city : e.target.value}})} style={{width: '180px',marginBottom: '5px',marginLeft: '42px',backgroundColor: isClicked ? '#FF9F33' : ''}}/><br/>
+                    Zip Code: <input type="text" name="Zip Code" defaultValue={updatedUser.address.zipcode} onChange={(e) => setUser({...user,address : {...user.address,zipcode : e.target.value}})} style={{width: '180px',marginLeft: '5px',backgroundColor: isClicked ? '#FF9F33' : ''}}/><br/>
                     </div>
                   </div>
                 

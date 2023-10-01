@@ -56,7 +56,7 @@ function TodosComp(props) {
           </div>)}
           {isAddNewTodoClicked &&  (<div style={{border: '2px solid gray', width: '475px',height : '200px'}} >
             
-            <div style={{marginLeft: '100px', marginTop : '80px' ,textDecorationLine : 'underline', textDecorationColor : 'blue'}}>Title: <input type="text" onChange={(e) => setNewTodo({...newTodo,title : e.target.value})} style={{marginLeft: '20px'}} />
+            <div style={{marginLeft: '100px', marginTop : '80px' ,textDecorationLine : 'underline', textDecorationColor : 'blue'}}>Title: <input type="text" name="Title" onChange={(e) => setNewTodo({...newTodo,title : e.target.value})} style={{marginLeft: '20px'}} />
               </div>
               <div style={{marginLeft : '350px',marginTop: '60px'}}>
               <button onClick={handleCancelAddNewTodo} style={{backgroundColor : '#FFD133',padding: '2px 4px'}}>Cancel</button>

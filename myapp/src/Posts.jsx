@@ -43,8 +43,8 @@ function PostsComp(props) {
       {isAddNewPostClicked &&  (<div style={{border: '2px solid gray', width: '475px',height : '200px'}} >
         
         <div style={{marginLeft: '100px', marginTop : '20px',textDecorationLine : 'underline', textDecorationColor : 'blue'}}>
-        Title: <input type="text" onChange={(e) => setNewPost({...newPost,title : e.target.value})} style={{marginLeft: '20px'}} /><br/><br/>
-        Body: <input type="text" onChange={(e) => setNewPost({...newPost,body : e.target.value})} style={{marginLeft: '15px'}} />
+        Title: <input type="text" name="Title" onChange={(e) => setNewPost({...newPost,title : e.target.value})} style={{marginLeft: '20px'}} /><br/><br/>
+        Body: <input type="text" name="Body" onChange={(e) => setNewPost({...newPost,body : e.target.value})} style={{marginLeft: '15px'}} />
           </div>
           <div style={{marginLeft : '350px',marginTop: '70px'}}>
           <button onClick={handleCancelAddNewPost} style={{backgroundColor : '#FFD133',padding: '2px 4px'}}>Cancel</button>

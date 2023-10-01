@@ -9,6 +9,7 @@ function UsersComp(props) {
   const [newUser, setNewUser] = useState({id : props.users.length + 1 , name : '',email : '', address:{street: '', suite: '', city: '', zipcode: ''}});
   const [isAddnewUserOutClicked, setIsAddnewUserOutClicked] = useState(false);
   const [isIdClicked, setIsIdClicked] = useState(false);
+  const [lastUserID, setLastUserID] = useState(10);
   
   useEffect(() =>
   {
@@ -18,7 +19,14 @@ function UsersComp(props) {
 
   useEffect(() =>
   {
-    setNewUser({id : props.users.length + 1 , name : '' , email : '',address:{street: '', suite: '', city: '', zipcode: ''}})
+    if(props.users.length > 0 )
+    {
+      setNewUser({id : props.users[props.users.length -1]?.id + 1 , name : '' , email : '',address:{street: '', suite: '', city: '', zipcode: ''}})
+    }
+    else
+    {
+      setNewUser({id : lastUserID + 1 , name : '' , email : '',address:{street: '', suite: '', city: '', zipcode: ''}})
+    }
   },[isAddnewUserOutClicked]) 
 
 useEffect(() =>
@@ -109,10 +117,10 @@ const handleCancelAddNewUserIn = () =>
 
   return (
     <div style={{ position: 'absolute',top : '10px',padding : '15px',marginLeft: '30px', textAlign: 'center', 
-    border: '2px solid gray', width: '460px',borderRadius: '60px',height: filterdUsers.length  == 1  ? '750px' : '' }}>
+    border: '2px solid gray', width: '460px',borderRadius: '60px',height: isIdClicked  ? '750px' : '' }}>
       
       <div style={{marginLeft : '80px'}}>
-          Search<input type="text" value={searchText} onInput={handleInput} />
+          Search<input type="text" name="Search" value={searchText} onInput={handleInput} />
      <button onClick={handleAddNewUserOut} style={{marginLeft : '70px' , backgroundColor : '#FFD133', padding: '5px 16px'}}>Add</button>
      </div>
       {
@@ -132,8 +140,8 @@ const handleCancelAddNewUserIn = () =>
       {
         isAddnewUserOutClicked && (<div style={{position : 'absolute', top : '100px',marginLeft: '485px', border: '2px solid gray', width: '475px',height : '200px'}} >
            <div style={{marginRight: '110px', marginTop : '20px',textDecorationLine : 'underline', textDecorationColor : 'blue'}}>
-        <span style={{marginLeft: '3px'}}>Name:</span> <input type="text" onChange={(e) => setNewUser({...newUser,name : e.target.value})} style={{marginLeft: '20px'}} /><br/><br/>
-        <span style={{marginLeft: '5px'}}>Email:</span> <input type="text" onChange={(e) => setNewUser({...newUser,email : e.target.value})} style={{marginLeft: '30px',marginRight : '3px'}} />
+        <span style={{marginLeft: '3px'}}>Name:</span> <input type="text" name="Name" autoComplete="off" onChange={(e) => setNewUser({...newUser,name : e.target.value})} style={{marginLeft: '20px'}} /><br/><br/>
+        <span style={{marginLeft: '5px'}}>Email:</span> <input type="text" name="Email" autoComplete="off"  onChange={(e) => setNewUser({...newUser,email : e.target.value})} style={{marginLeft: '30px',marginRight : '3px'}} />
           </div>
           <div style={{marginLeft : '350px',marginTop: '70px'}}>
           <button onClick={handleCancelAddNewUserIn} style={{backgroundColor : '#FFD133',padding: '2px 4px'}}>Cancel</button>
